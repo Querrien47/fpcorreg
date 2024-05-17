@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,66 +12,67 @@
     <form id="registrationForm" class="form" onsubmit="return validateForm()">
         <h2>Solicitud de inscripción</h2>
         <div class="form-group">
-            <label for="nombre">Nombre y Apellido del solicitante </label>
-            <input type="text" id="nombre" name="nombre" required>
+            <label for="nombre">Nombre y Apellido del solicitante</label>
+            <input type="text" id="nombre" name="nombre">
         </div>
         <div class="form-group">
             <br>
-            <label for="email">Correo electrónico </label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email">
         </div>
         <div class="form-group">
             <label for="telefono">Teléfono</label>
-            <input type="phone" id="telefono" name="Telefono  placeholder="Ingrese aquí su telefono de contacto" required
+            <input type="text" id="telefono" name="telefono" placeholder="Ingrese aquí su teléfono de contacto">
             <br>
         </div>
         <div class="form-group">
             <label for="vinculo">Vínculo familiar</label> <br>
-            <input type="radio" name="vinculo" value="Madre" required>Madre
+            <input type="radio" name="vinculo" value="Madre">Madre
             <input type="radio" name="vinculo" value="Padre">Padre
             <input type="radio" name="vinculo" value="Otro">Otro
         </div>           
         <div class="form-group">
             <br>
             <label>Nivel educativo al que ingresa:</label><br>
-             <input type="radio" name="nivel" value="Jardín" required>Jardín 
-             <input type="radio" name="nivel" value="Primaria">Primaria
-             <input type="radio" name="nivel" value="Secundaria"> Secundaria
-            </required> 
-            
+            <input type="radio" name="nivel" value="Jardín">Jardín 
+            <input type="radio" name="nivel" value="Primaria">Primaria
+            <input type="radio" name="nivel" value="Secundaria">Secundaria
         </div>   
         <br>
         <div class="form-group">
             <label for="nombrealu">Nombre y Apellido del ingresante</label>
-            <input type="text" id="nombrealu" name="nombrealu" required>
+            <input type="text" id="nombrealu" name="nombrealu">
         </div> 
-        <div>
+        <div class="form-group">
             <label>Género:</label><br>
-            <input type="radio" name="genero" value="varon" required>Varón
-            <input type="radio" name="genero" value="Mail">Mujer
-            <input type="radio" name="genero" value="otro"> Otro
+            <input type="radio" name="genero" value="varon">Varón
+            <input type="radio" name="genero" value="Mujer">Mujer
+            <input type="radio" name="genero" value="otro">Otro
         </div>
-        <div>
+        <div class="form-group">
             <br>
             <label for="fechaNacimiento">Fecha de nacimiento</label><br>
-            <input type="date" id="fechaNacimiento"required onchange="calcularEdad()">
+            <input type="date" id="fechaNacimiento">
             <br><br>
         </div>    
-        <div>
-            <label for="direccion">Direccion:</label><input type="text" name="direccion" required
-            placeholder="Ingrese su dirección aqui (calle y número)"> <br><br>
-            <label for="Localidad">Localidad </label><input type="text" name="localidad" value="C.A.B.A."> <br><br>
+        <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" id="direccion" name="direccion" placeholder="Ingrese su dirección aquí (calle y número)">
+            <br><br>
+            <label for="localidad">Localidad</label>
+            <input type="text" id="localidad" name="localidad" value="C.A.B.A.">
+            <br><br>
         </div>   
-        <div>
-            <label for="comentarios">Comentarios e inquietudes:</label> <textarea name="comentarios" rows="10" cols="50"></textarea>
+        <div class="form-group">
+            <label for="comentarios">Comentarios e inquietudes:</label>
+            <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
         </div>
         <br>
-
-        <button type="submit">Registrar Solicitud </button>
+        <button type="submit">Registrar Solicitud</button>
     </form>
-
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+

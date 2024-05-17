@@ -1,62 +1,47 @@
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  if (validateForm()) {
+      // Aquí puedes enviar el formulario si es válido
+      console.log("Formulario enviado!");
+  }
+});
 
 function validateForm() {
-  var nombre = document.getElementById('nombre').value.trim();
-  var email = document.getElementById('email').value.trim();
-  var contraseña = document.getElementById('contraseña').value;
-  var nivel = document.querySelector('input[name="nivel"]:checked');
+  const nombre = document.getElementById('nombre').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const telefono = document.getElementById('telefono').value.trim();
+  const vinculo = document.querySelector('input[name="vinculo"]:checked');
+  const nivel = document.querySelector('input[name="nivel"]:checked');
+  const nombrealu = document.getElementById('nombrealu').value.trim();
+  const genero = document.querySelector('input[name="genero"]:checked');
+  const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+  const direccion = document.getElementById('direccion').value.trim();
+  const localidad = document.getElementById('localidad').value.trim();
 
-  var emailRegex = /^\S+@\S+\.\S+$/;
-
-  var errores = [];
-
-  if (nombre === "") {
-      errores.push("Por favor, ingresa tu nombre.");
+  if (!nombre || !email || !telefono || !vinculo || !nivel || !nombrealu || !genero || !fechaNacimiento || !direccion || !localidad) {
+      alert("Por favor, complete todos los campos requeridos.");
+      return false;
   }
 
-  if (!emailRegex.test(email)) {
-      errores.push("Por favor, ingresa un correo electrónico válido.");
+  if (!validateEmail(email)) {
+      alert("Por favor, ingrese un correo electrónico válido.");
+      return false;
   }
 
-  if (contraseña.length < 6) {
-      errores.push("La contraseña debe tener al menos 6 caracteres.");
-  }
-
-  if (!nivel) {
-      errores.push("Por favor, selecciona tu nivel educativo.");
-  }
-
-  if (errores.length > 0) {
-      mostrarErrores(errores);
+  if (!validatePhone(telefono)) {
+      alert("Por favor, ingrese un número de teléfono válido.");
       return false;
   }
 
   return true;
 }
-function calcularEdad() {
-  var fechaNacimiento = new Date(document.getElementById('fechaNacimiento').value);
-  var hoy = new Date();
 
-  var edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
-  var mes = hoy.getMonth() - fechaNacimiento.getMonth();
-
-  if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
-      edad--;
-  }
-
-  document.getElementById('resultado').textContent = 'Tienes ' + edad + ' años.';
+function validateEmail(email) {
+  const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return re.test(String(email).toLowerCase());
 }
 
-// Calcular edad al cargar la página
-calcularEdad();
-
-
-function mostrarErrores(errores) {
-  var errorContainer = document.getElementById('errorContainer');
-  errorContainer.innerHTML = '';
-
-  errores.forEach(function(error) {
-      var errorMessage = document.createElement('p');
-      errorMessage.textContent = error;
-      errorContainer.appendChild(errorMessage);
-  });
+function validatePhone(phone) {
+  const re = /^[0-9]{10,15}$/;
+  return re.test(String(phone));
 }
