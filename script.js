@@ -1,8 +1,7 @@
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
   event.preventDefault();
   if (validateForm()) {
-      // Aquí puedes enviar el formulario si es válido
-      console.log("Formulario enviado!");
+      document.getElementById('successMessage').style.display = 'block';
   }
 });
 
